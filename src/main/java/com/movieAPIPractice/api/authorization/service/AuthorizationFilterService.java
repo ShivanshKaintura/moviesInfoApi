@@ -1,4 +1,4 @@
-package com.movieAPIPractice.SKMoviebhandar.authorization.service;
+package com.movieAPIPractice.api.authorization.service;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -32,27 +32,27 @@ public class AuthorizationFilterService extends OncePerRequestFilter {
             , HttpServletResponse response
             , FilterChain filterChain) throws ServletException, IOException {
 
-        final String authorizationHeader=request.getHeader("Authorization");
+        final String authorizationHeader = request.getHeader("Authorization");
 
-        if(authorizationHeader == null || !authorizationHeader.startsWith("Bearer")){
-            filterChain.doFilter(request,response);
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer")) {
+            filterChain.doFilter(request, response);
 
             return;
         }
         String jwt;
 
         //to extract token as it stats after 6 because of bearer
-        jwt=authorizationHeader.substring(7);
+        jwt = authorizationHeader.substring(7);
 
         //extract userName from JWT
 
-        String userName=jwtService.extractUsername(jwt);
+        String userName = jwtService.extractUsername(jwt);
 
-        if(userName!=null && SecurityContextHolder.getContext().getAuthentication()==null){
-            UserDetails userDetails=userDetailsService.loadUserByUsername(userName);
+        if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
 
-            if(jwtService.isTokenValid(jwt,userDetails)){
-                UsernamePasswordAuthenticationToken authenticationToken=new UsernamePasswordAuthenticationToken(
+            if (jwtService.isTokenValid(jwt, userDetails)) {
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
                         userDetails.getAuthorities()
@@ -62,7 +62,7 @@ public class AuthorizationFilterService extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
         }
-        filterChain.doFilter(request,response);
+        filterChain.doFilter(request, response);
 
     }
 }

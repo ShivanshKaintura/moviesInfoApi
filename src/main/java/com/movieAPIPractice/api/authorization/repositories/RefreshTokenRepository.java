@@ -1,11 +1,12 @@
-package com.movieAPIPractice.SKMoviebhandar.authorization.repositories;
+package com.movieAPIPractice.api.authorization.repositories;
 
-import com.movieAPIPractice.SKMoviebhandar.authorization.entities.RefreshToken;
+
+import com.movieAPIPractice.api.authorization.entities.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface RefreshTokenRepository extends JpaRepository<RefreshToken,Integer> {
+public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Integer> {
 
     Optional<RefreshToken> findByRefreshToken(String refreshToken);
 }

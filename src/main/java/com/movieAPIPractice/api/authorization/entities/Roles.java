@@ -1,4 +1,4 @@
-package com.movieAPIPractice.SKMoviebhandar.authorization.entities;
+package com.movieAPIPractice.api.authorization.entities;
 
 public enum Roles {
 

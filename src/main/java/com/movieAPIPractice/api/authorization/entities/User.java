@@ -1,4 +1,4 @@
-package com.movieAPIPractice.SKMoviebhandar.authorization.entities;
+package com.movieAPIPractice.api.authorization.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -28,7 +28,7 @@ public class User implements UserDetails {
 
     @NotBlank(message = "Cannot be empty")
     @Column(unique = true)
-    private  String userName;
+    private String userName;
 
     @NotBlank(message = "Cannot be empty")
     @Column(unique = true)
@@ -36,22 +36,22 @@ public class User implements UserDetails {
     private String email;
 
     @NotBlank(message = "Cannot be empty")
-    @Size(min = 8,message = "The password must be of 8 words")
+    @Size(min = 8, message = "The password must be of 8 words")
     private String password;
 
-    @OneToOne(mappedBy="user")
+    @OneToOne(mappedBy = "user")
     private RefreshToken refreshToken;
 
     @Enumerated(EnumType.STRING)
     private Roles role;
 
-    private boolean isEnabled=true;
+    private boolean isEnabled = true;
 
-    private boolean isAccountNonExpired=true;
+    private boolean isAccountNonExpired = true;
 
-    private boolean isAccountNonLocked=true;
+    private boolean isAccountNonLocked = true;
 
-    private boolean isCredentialsNonExpired=true;
+    private boolean isCredentialsNonExpired = true;
 
 
     @Override

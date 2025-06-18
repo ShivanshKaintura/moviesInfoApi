@@ -1,8 +1,8 @@
-package com.movieAPIPractice.SKMoviebhandar.repository;
+package com.movieAPIPractice.api.repository;
 
-import com.movieAPIPractice.SKMoviebhandar.entities.Movie;
+import com.movieAPIPractice.api.entities.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MovieRepository extends JpaRepository<Movie,Integer> {
+public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
 }

@@ -1,4 +1,4 @@
-package com.movieAPIPractice.SKMoviebhandar.authorization.entities;
+package com.movieAPIPractice.api.authorization.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -20,7 +20,7 @@ public class RefreshToken {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer tokenId;
 
-    @Column(nullable = false,length = 500)
+    @Column(nullable = false, length = 500)
     @NotBlank(message = "Enter refresh token")
     private String refreshToken;
 

@@ -1,4 +1,4 @@
-package com.movieAPIPractice.SKMoviebhandar.authorization.service;
+package com.movieAPIPractice.api.authorization.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

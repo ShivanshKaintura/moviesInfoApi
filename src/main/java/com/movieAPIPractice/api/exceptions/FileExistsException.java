@@ -1,7 +1,7 @@
-package com.movieAPIPractice.SKMoviebhandar.exceptions;
+package com.movieAPIPractice.api.exceptions;
 
-public class FileExistsException  extends  RuntimeException{
-    public FileExistsException(String message){
+public class FileExistsException extends RuntimeException {
+    public FileExistsException(String message) {
         super(message);
     }
 }

@@ -1,4 +1,4 @@
-package com.movieAPIPractice.SKMoviebhandar.dto;
+package com.movieAPIPractice.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
